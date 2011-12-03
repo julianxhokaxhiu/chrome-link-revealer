@@ -1,0 +1,19 @@
+body,fieldset,ol,ul,h1,h2,input{font-family:Arial;margin:0;padding:0;color:#333}
+body{font-size:75%}
+fieldset{width:500px;margin:0 auto;border:none}
+ol,ul{list-style-type:none}
+h1,h2,label{text-shadow: 0px 0px 1px #333}
+h1{padding:30px 0 30px 140px;margin-top:10px;font-size:2.6em;background-image:url(../img/icon_128.png);background-position:left top;background-repeat:no-repeat}
+h2{font-size:1.4em;margin-bottom:15px}
+label{display:inline-block;width:10em;font-weight:bold}
+button{border:1px solid #999;border-radius:3px;background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(21%,#dbdce2), color-stop(49%,#b8bac6), color-stop(80%,#dddfe3), color-stop(100%,#f5f6f6))}
+button span{display:block;padding:5px 5px 5px 20px;background-position:left center;background-repeat:no-repeat}
+#reset{float:right}
+#save span{background-image:url(../img/save.png)}
+#load span{background-image:url(../img/load.png)}
+#reset span{background-image:url(../img/reset.png)}
+.panel{position:relative;padding:10px;margin:0 5px 10px;border:1px solid #999;border-radius:5px;box-shadow: 1px 1px 5px #999;background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f3f3f3), color-stop(51%,#ededed), color-stop(100%,#ffffff))}
+.panel ul{width:100%;overflow:hidden;margin-bottom:10px}
+.panel ul li{width:33%;float:left}
+.panel span{margin-left:11.5em;color:#999;font-size:0.90em}
+.panel span.seo{position:absolute;right:5px;top:5px;font-weight:bold;font-size:1em;color:red}

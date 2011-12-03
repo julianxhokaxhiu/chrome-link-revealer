@@ -1,0 +1,125 @@
+<html>
+	<head>
+		<title>Link Revealer Options</title>
+		<link type="text/css" rel="stylesheet" href="css/jquery.jgrowl.css" />
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<link type="text/css" rel="stylesheet" href="css/colorpicker.css" />
+		<script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jgrowl.js"></script>
+		<script type="text/javascript" src="js/colorpicker.js"></script>
+		<script type="text/Javascript" src="js/default.js"></script>
+		<script type="text/javascript">
+			jQuery(function($){
+				var loadConfig = function(r){
+					if(window.localStorage.getItem(DefaultOptions.timeout.label))$('#timeoutms').val((r?DefaultOptions.timeout.value:window.localStorage.getItem(DefaultOptions.timeout.label)));
+					if(window.localStorage.getItem(DefaultOptions.istooltip.label))$('#astooltip').attr('checked',(r?DefaultOptions.istooltip.value:((window.localStorage.getItem(DefaultOptions.istooltip.label)==='true')?true:false)));
+					if(window.localStorage.getItem(DefaultOptions.position.label))$('input[name="position"][value="'+(r?DefaultOptions.position.value:window.localStorage.getItem(DefaultOptions.position.label))+'"]').attr('checked',true);
+					if(window.localStorage.getItem(DefaultOptions.domaincolor.label))$('#domaincolor').val((r?DefaultOptions.domaincolor.value:window.localStorage.getItem(DefaultOptions.domaincolor.label)));
+				};
+				var saveConfig = function(){
+					window.localStorage.setItem(DefaultOptions.timeout.label,$('#timeoutms').val());
+					window.localStorage.setItem(DefaultOptions.istooltip.label,$('#astooltip').is(':checked'));
+					window.localStorage.setItem(DefaultOptions.position.label,$('input[name="position"]:checked').val());
+					window.localStorage.setItem(DefaultOptions.domaincolor.label,$('#domaincolor').val());
+				};
+				var viewAlert = function(s){
+					$.jGrowl('Operation complete!',{header:s+' settings',position:'bottom-right'});
+				};
+				var colpkrop = {
+					color:$('#domaincolor').val().toLowerCase(),
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange:function(hab,hex,rgb,el){
+						$('#domaincolor').val(hex)
+					}
+				};
+				$('#domaincolor').ColorPicker(colpkrop);
+				$('#save').click(function(){saveConfig();viewAlert('Save')});
+				$('#load').click(function(){loadConfig();viewAlert('Load')});
+				$('#reset').click(function(){loadConfig(true);viewAlert('Reset')});
+				loadConfig();
+			});
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<ul class="keys">
+				<li>
+					<h1>Link<br/>Revealer</h1>
+				</li>
+				<li class="panel">
+					<label>Show as tooltip</label>
+					<input id="astooltip" type="checkbox" checked="checked" />
+				</li>
+				<li class="panel">
+					<label>Show after</label>
+					<input id="timeoutms" value="1000" /><br/>
+					<span>If this will be set to 0, this will be shown on hover.</span>
+				</li>
+				<li class="panel">
+					<label>Highlight domain with color</label>
+					<input id="domaincolor" value="FFFF00"/></br/>
+					<span>This will be used to highlight domain color into the tooltip.</span>
+					<span class="seo">SEO</span>
+				</li>
+				<li class="panel">
+					<h2>Show, relative to the window, at:</h2>
+					<ul>
+						<li>
+							<label>Left Top</label>
+							<input name="position" type="radio" value="left top"/>
+						</li>
+						<li>
+							<label>Center Top</label>
+							<input name="position" type="radio" value="center top"/>
+						<li>
+						<li>
+							<label>Right Top</label>
+							<input name="position" type="radio" value="right top"/>
+						<li>
+					</ul>
+					<ul>
+						<li>
+							<label>Left Center</label>
+							<input name="position" type="radio" value="left center"/>
+						</li>
+						<li>
+							<label>Center Center</label>
+							<input name="position" type="radio" value="center center"/>
+						<li>
+						<li>
+							<label>Right Center</label>
+							<input name="position" type="radio" value="right center"/>
+						<li>
+					</ul>
+					<ul>
+						<li>
+							<label>Left Bottom</label>
+							<input name="position" type="radio" value="left bottom" checked="checked"/>
+						</li>
+						<li>
+							<label>Center Bottom</label>
+							<input name="position" type="radio" value="center bottom"/>
+						<li>
+						<li>
+							<label>Right Bottom</label>
+							<input name="position" type="radio" value="right bottom"/>
+						<li>
+					</ul>
+					<span>This will be used only if it's NOT a tooltip.</span>
+				</li>
+				<li>
+					<button id="save"><span>Save settings</span></button>
+					<button id="load"><span>Load settings</span></button>
+					<button id="reset"><span>Reset settings</span></button>
+				</li>
+			</ul>
+		</fieldset>
+	</body>
+</html>

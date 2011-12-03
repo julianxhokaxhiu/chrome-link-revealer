@@ -1,0 +1,14 @@
+div.jGrowl{z-index:9999;color:#fff;font-size:12px;position:absolute;padding:10px}
+body > div.jGrowl{position:fixed}
+div.jGrowl.top-left{left:0;top:0}
+div.jGrowl.top-right{right:0;top:0}
+div.jGrowl.bottom-left{left:0;bottom:0}
+div.jGrowl.bottom-right{right:0;bottom:0}
+div.jGrowl.center{top:0;width:50%;left:25%}
+div.center div.jGrowl-notification,div.center div.jGrowl-closer{margin-left:auto;margin-right:auto}
+div.jGrowl div.jGrowl-notification,div.jGrowl div.jGrowl-closer{background-color:#000;opacity:.85;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=85);filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=85);zoom:1;width:235px;margin-top:5px;margin-bottom:5px;font-family:Tahoma, Arial, Helvetica, sans-serif;font-size:1em;text-align:left;display:none;-moz-border-radius:5px;-webkit-border-radius:5px;padding:10px}
+div.jGrowl div.jGrowl-notification{min-height:40px}
+div.jGrowl div.jGrowl-notification div.jGrowl-header{font-weight:700;font-size:.85em}
+div.jGrowl div.jGrowl-notification div.jGrowl-close{z-index:99;float:right;font-weight:700;font-size:1em;cursor:pointer}
+div.jGrowl div.jGrowl-closer{padding-top:4px;padding-bottom:4px;cursor:pointer;font-size:.9em;font-weight:700;text-align:center}
+@media print{div.jGrowl{display:none}}
