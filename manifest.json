@@ -1,9 +1,15 @@
 {
-	"update_url":"http://clients2.google.com/service/update2/crx",
+	"manifest_version":2,
 	"name":"Link Revealer",
-	"version":"0.2",
+	"version":"0.2.1",
 	"description":"Show URLs when you hover over links into a webpage.",
-	"background_page":"background.html",
+	"background":{
+		"scripts":[
+			"js/jquery-1.7.2.min.js",
+			"js/default.js",
+			"background.js"
+		]
+	},
 	"options_page":"options.html",
 	"icons":{
 		"16":"img/icon_16.png",
@@ -14,7 +20,7 @@
 		  "matches": ["http://*/*","https://*/*"],
 		  "permissions":["http://*/*","https://*/*"],
 		  "css": ["css/jquery.qtip.min.css"],
-		  "js": ["js/jquery-1.5.2.min.js","js/jquery.qtip.pack.js","js/jquery.urldecoder.min.js","js/script.js"],
+		  "js": ["js/jquery-1.7.2.min.js","js/jquery.qtip.pack.js","js/jquery.urldecoder.min.js","js/script.js"],
 		  "run_at": "document_idle"
 		}
 	]
