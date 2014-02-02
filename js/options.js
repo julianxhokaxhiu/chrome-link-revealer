@@ -12,7 +12,7 @@ jQuery(function($){
 		window.localStorage.setItem(DefaultOptions.domaincolor.label,$('#domaincolor').val());
 	};
 	var viewAlert = function(s){
-		$.jGrowl('Operation complete!',{header:s+' settings',position:'bottom-right'});
+		$.growl({title:s+' settings', message: 'Operation complete!'});
 	};
 	var colpkrop = {
 		color:$('#domaincolor').val().toLowerCase(),
