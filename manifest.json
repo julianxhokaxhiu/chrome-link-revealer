@@ -1,7 +1,7 @@
 {
 	"manifest_version":2,
 	"name":"Link Revealer",
-	"version":"0.2.3",
+	"version":"0.3",
 	"description":"Show URLs when you hover over links into a webpage.",
 	"background":{
 		"scripts":[
@@ -17,9 +17,18 @@
 	},
 	"content_scripts":[
 		{
-		  "matches": ["http://*/*","https://*/*"],
-		  "permissions":["http://*/*","https://*/*"],
-		  "css": ["css/jquery.qtip.min.css"],
+		  "matches": [
+		  	"http://*/*",
+		  	"https://*/*"
+		  ],
+		  "permissions":[
+		  	"http://*/*",
+		  	"https://*/*"
+		  ],
+		  "css": [
+		  	"css/jquery.qtip.min.css",
+		  	"css/font-awesome.min.css"
+		  ],
 		  "js": [
 		  	"js/jquery-2.1.1.min.js",
 		  	"js/jquery.qtip.min.js",
@@ -28,5 +37,8 @@
 		  ],
 		  "run_at": "document_idle"
 		}
+	],
+	"web_accessible_resources": [
+		"fonts/*"
 	]
 }
