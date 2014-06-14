@@ -13,6 +13,6 @@ var DefaultOptions = {
 	},
 	domaincolor:{
 		label:'domaincolor',
-		value:'FFFF00'
+		value:'#FFFF00'
 	}
 };

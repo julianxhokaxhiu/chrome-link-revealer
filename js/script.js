@@ -8,7 +8,7 @@ jQuery(function($){
                     $(o).qtip({
                         overwrite: false,
                         content: {
-                            text: uri.source.replace(uri.host, '<span style="color:#' + r.domaincolor + '">' + uri.host + '</span>')
+                            text: uri.source.replace(uri.host, '<span style="color:' + r.domaincolor + '">' + uri.host + '</span>')
                         },
                         show: {
                             event: e.type,
@@ -37,7 +37,7 @@ jQuery(function($){
                     $(o).qtip({
                         overwrite: false,
                         content: {
-                            text: uri.source.replace(uri.host, '<span style="color:#' + r.domaincolor + '">' + uri.host + '</span>')
+                            text: uri.source.replace(uri.host, '<span style="color:' + r.domaincolor + '">' + uri.host + '</span>')
                         },
                         show: {
                             event: e.type,

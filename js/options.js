@@ -14,21 +14,6 @@ jQuery(function($){
 	var viewAlert = function(s){
 		$.growl({title:s+' settings', message: 'Operation complete!'});
 	};
-	var colpkrop = {
-		color:$('#domaincolor').val().toLowerCase(),
-		onShow: function (colpkr) {
-			$(colpkr).fadeIn(500);
-			return false;
-		},
-		onHide: function (colpkr) {
-			$(colpkr).fadeOut(500);
-			return false;
-		},
-		onChange:function(hab,hex,rgb,el){
-			$('#domaincolor').val(hex)
-		}
-	};
-	$('#domaincolor').ColorPicker(colpkrop);
 	$('#save').click(function(){saveConfig();viewAlert('Save')});
 	$('#load').click(function(){loadConfig();viewAlert('Load')});
 	$('#reset').click(function(){loadConfig(true);viewAlert('Reset')});

@@ -2,7 +2,7 @@
 /*
 jQuery Growl
 Copyright 2013 Kevin Sylvestre
-1.1.4
+1.1.8
 */
 
 
@@ -72,8 +72,8 @@ Copyright 2013 Kevin Sylvestre
       this.remove = __bind(this.remove, this);
       this.dismiss = __bind(this.dismiss, this);
       this.present = __bind(this.present, this);
-      this.close = __bind(this.close, this);
       this.cycle = __bind(this.cycle, this);
+      this.close = __bind(this.close, this);
       this.unbind = __bind(this.unbind, this);
       this.bind = __bind(this.bind, this);
       this.render = __bind(this.render, this);
@@ -86,28 +86,25 @@ Copyright 2013 Kevin Sylvestre
       var $growl;
       $growl = this.$growl();
       this.$growls().append($growl);
-      this.cycle($growl);
+      if (this.settings["static"] != null) {
+        this.present();
+      } else {
+        this.cycle();
+      }
     };
 
     Growl.prototype.bind = function($growl) {
       if ($growl == null) {
         $growl = this.$growl();
       }
-      return $growl.find("." + this.settings.namespace + "-close").on("click", this.close);
+      return $growl.on("contextmenu", this.close).find("." + this.settings.namespace + "-close").on("click", this.close);
     };
 
     Growl.prototype.unbind = function($growl) {
       if ($growl == null) {
         $growl = this.$growl();
       }
-      return $growl.find("." + (this.settings.namespace - close)).off("click", this.close);
-    };
-
-    Growl.prototype.cycle = function($growl) {
-      if ($growl == null) {
-        $growl = this.$growl();
-      }
-      return $growl.queue(this.present).delay(this.settings.duration).queue(this.dismiss).queue(this.remove);
+      return $growl.off("contextmenu", this.close).find("." + (this.settings.namespace - close)).off("click", this.close);
     };
 
     Growl.prototype.close = function(event) {
@@ -116,6 +113,12 @@ Copyright 2013 Kevin Sylvestre
       event.stopPropagation();
       $growl = this.$growl();
       return $growl.stop().queue(this.dismiss).queue(this.remove);
+    };
+
+    Growl.prototype.cycle = function() {
+      var $growl;
+      $growl = this.$growl();
+      return $growl.queue(this.present).delay(this.settings.duration).queue(this.dismiss).queue(this.remove);
     };
 
     Growl.prototype.present = function(callback) {
